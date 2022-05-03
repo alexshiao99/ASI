@@ -28,6 +28,17 @@ function App() {
   }
   return (
     <>
+      <div className="nav">
+        <span className="logo">
+          BLOGMODO
+        </span>
+        <span>
+          Search Anime
+        </span>
+        <span className="nav-unselected">
+          Saved Anime
+        </span>
+      </div>
       {pageRouter()}
     </>
   )

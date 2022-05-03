@@ -1,8 +1,16 @@
+require('dotenv').config();
 const Routers = require('express').Router();
 const axios = require('axios');
 const API = require('../config');
+const cloudinary = require('cloudinary');
 
-Routers.get('/:idMal', (req, res) => {
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET
+})
+
+Routers.get('/MAL/:idMal', (req, res) => {
   axios.get(`https://api.myanimelist.net/v2/anime/${req.params.idMal}`, {
     headers: { "X-MAL-CLIENT-ID": API.TOKEN },
     params: {
@@ -17,8 +25,24 @@ Routers.get('/:idMal', (req, res) => {
     .catch((err) => console.log(err));
 });
 
+Routers.get('/URL', (req, res) => {
+  axios.get('https://api.trace.moe/search', {
+    params: {
+      url: req.query.imgUrl,
+      anilistInfo: true,
+      cutBorders: true,
+    }
+  })
+  .then((data) => res.send(data.data))
+  .catch((err) => console.log(err));
+})
+
 Routers.post('/image', (req, res) => {
-  console.log(req.files);
+  const values = Object.values(req.files)
+  const promises = values.map(image => cloudinary.uploader.upload(image.path))
+  Promise
+    .all(promises)
+    .then(results => res.send(results[0].secure_url))
 })
 
 module.exports = Routers;

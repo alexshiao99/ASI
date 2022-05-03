@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
 export const DivAll = styled.div `
-  border: 1px solid red;
+  border: 1px solid #B972E5;
+  border-radius: 5px;
   width: 580px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 10px 20px 10px 10px;
+  &:hover {
+    box-shadow: 0 0 10px 1px #B972E5;
+    transition: 0.25s;
+  };
 `;
+
 
 export const TitleStyle = styled.div `
   font-size: 1.25em;
@@ -37,6 +43,11 @@ export const DivSyn = styled.div`
   > div {
     font-size: 1.33em;
     font-weight: 700;
+  }
+  overflow-y: scroll;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
 
