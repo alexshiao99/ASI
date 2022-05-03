@@ -5,6 +5,9 @@ const SearchPreviewStyle = styled.div `
   padding: 20px;
   margin-right: 20px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `;
 
 export default SearchPreviewStyle;

@@ -19,6 +19,12 @@ const SearchBarStyle = styled.div `
     border-radius: 10px;
     width: 100px;
     margin: 2px;
+    &:hover {
+    cursor: pointer;
+    };
+    background-color: #DEC3EF;
+    font-family: "Montserrat";
+    font-size: 1.1em;
   }
 `;
 

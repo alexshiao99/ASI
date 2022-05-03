@@ -9,6 +9,7 @@ const SearchContainerStyle = styled.div `
   /* justify-content: start; */
   /* width: 80%; */
   justify-content: center;
+
 `;
 
 export default SearchContainerStyle;

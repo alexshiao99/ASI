@@ -1,49 +1,61 @@
 let animeInfo = {
-  "id": 30230,
-  "title": "Diamond no Ace: Second Season",
-  "main_picture": {
-      "medium": "https://api-cdn.myanimelist.net/images/anime/9/74398.jpg",
-      "large": "https://api-cdn.myanimelist.net/images/anime/9/74398l.jpg"
-  },
-  "start_date": "2015-04-06",
-  "end_date": "2016-03-28",
-  "synopsis": "After the National Tournament, the Seidou High baseball team moves forward with uncertainty as the Fall season quickly approaches. In an attempt to build a stronger team centered around their new captain, fresh faces join the starting roster for the very first time. Previous losses weigh heavily on the minds of the veteran players as they continue their rigorous training, preparing for what will inevitably be their toughest season yet.\n \nRivals both new and old stand in their path as Seidou once again climbs their way toward the top, one game at a time. Needed now more than ever before, Furuya and Eijun must be determined to pitch with all their skill and strength in order to lead their team to victory. And this time, one of these young pitchers may finally claim that coveted title: \"The Ace of Seidou.\"\n\n[Written by MAL Rewrite]",
-  "mean": 8.3,
-  "rank": 241,
-  "popularity": 1472,
-  "media_type": "tv",
-  "genres": [
-      {
-          "id": 23,
-          "name": "School"
-      },
-      {
-          "id": 27,
-          "name": "Shounen"
-      },
-      {
-          "id": 30,
-          "name": "Sports"
-      },
-      {
-          "id": 77,
-          "name": "Team Sports"
-      }
-  ],
-  "num_episodes": 51,
-  "start_season": {
-      "year": 2015,
-      "season": "spring"
-  },
-  "rating": "pg_13",
-  "studios": [
-      {
-          "id": 10,
-          "name": "Production I.G"
-      },
-      {
-          "id": 11,
-          "name": "Madhouse"
-      }
-  ]
+    "id": 29787,
+    "title": "Gochuumon wa Usagi Desu ka??",
+    "main_picture": {
+        "medium": "https://api-cdn.myanimelist.net/images/anime/8/76702.jpg",
+        "large": "https://api-cdn.myanimelist.net/images/anime/8/76702l.jpg"
+    },
+    "alternative_titles": {
+        "synonyms": [
+            "Gochuumon wa Usagi desu ka? 2",
+            "GochiUsa 2"
+        ],
+        "en": "Is the Order a Rabbit??",
+        "ja": "ご注文はうさぎですか??"
+    },
+    "start_date": "2015-10-10",
+    "end_date": "2015-12-26",
+    "synopsis": "With a new year comes new adventures, especially at the Rabbit House! Since her arrival at the café, Kokoa Hoto has become accustomed to her new life as a waitress even though the Rabbit House isn't the rabbit paradise she initially envisioned it to be. Life is pleasant, and she enjoys spending time both working and playing with her friends and fellow waitresses Chino Kafuu, a cute middle school student with a fuzzy bunny companion named Tippy, and Rize Tedeza, the pig-tailed daughter of a soldier who is readily armed for any scenario.\n\nTogether with Chiya Ujimatsu and Sharo Kirima, who also work at neighboring cafés in town, the Rabbit House crew gets involved in all sorts of crazy adventures. Throughout these adventures, the girls encounter troubled novelists, rival cafes, secret treasure, and... alcoholic chocolates?\n\n[Written by MAL Rewrite]",
+    "mean": 7.8,
+    "rank": 886,
+    "popularity": 1512,
+    "media_type": "tv",
+    "genres": [
+        {
+            "id": 52,
+            "name": "CGDCT"
+        },
+        {
+            "id": 4,
+            "name": "Comedy"
+        },
+        {
+            "id": 63,
+            "name": "Iyashikei"
+        },
+        {
+            "id": 36,
+            "name": "Slice of Life"
+        },
+        {
+            "id": 48,
+            "name": "Workplace"
+        }
+    ],
+    "num_episodes": 12,
+    "start_season": {
+        "year": 2015,
+        "season": "fall"
+    },
+    "rating": "pg_13",
+    "studios": [
+        {
+            "id": 290,
+            "name": "Kinema Citrus"
+        },
+        {
+            "id": 314,
+            "name": "White Fox"
+        }
+    ]
 }

@@ -10,11 +10,15 @@ Routers.get('/:idMal', (req, res) => {
         `id,title,main_picture,start_date,
         end_date,synopsis,mean,rank,popularity,
         media_type,genres,my_list_status,
-        num_episodes,start_season,rating,studios`
+        num_episodes,start_season,rating,studios,alternative_titles`
     },
   })
     .then((data) => res.send(data.data))
     .catch((err) => console.log(err));
 });
+
+Routers.post('/image', (req, res) => {
+  console.log(req.files);
+})
 
 module.exports = Routers;
