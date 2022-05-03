@@ -4,6 +4,7 @@ import SearchPreview from './SearchPreview.jsx';
 import SearchDetails from './SearchDetails.jsx';
 import SearchContainerStyle from './Styles/SearchContainerStyle.js';
 import ResultsStyle from './Styles/ResultsStyle.js';
+import { NavBarStyle, LogoSpan, SearchSpan, SavedSpan } from './Styles/NavBarStyle.js';
 import sampleData from '../../../tempdata.js'
 const axios = require('axios');
 
@@ -28,17 +29,17 @@ function App() {
   }
   return (
     <>
-      <div className="nav">
-        <span className="logo">
-          BLOGMODO
-        </span>
-        <span>
+      <NavBarStyle>
+        <LogoSpan>
+          ANIMELIST
+        </LogoSpan>
+        <SearchSpan onClick={() => setPage('Search')}>
           Search Anime
-        </span>
-        <span className="nav-unselected">
+        </SearchSpan>
+        <SavedSpan onClick={() => setPage('Saved')}>
           Saved Anime
-        </span>
-      </div>
+        </SavedSpan>
+      </NavBarStyle>
       {pageRouter()}
     </>
   )

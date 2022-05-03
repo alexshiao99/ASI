@@ -1,4 +1,8 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background-color: rgb(247, 230, 247);
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  display: none;
 }
