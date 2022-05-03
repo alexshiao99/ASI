@@ -4,11 +4,8 @@ import VideoStyle from './Styles/VideoStyle.js';
 import ReactPlayer from 'react-player'
 import sampleData from '../../../tempdata.js'
 
-function SearchPreview({}) {
-  let [anime, setAnime] = useState({});
-  useEffect(() => {
-    setAnime(sampleData.result[0]);
-  }, [])
+function SearchPreview({ anime }) {
+
 
   console.log(anime);
   return (

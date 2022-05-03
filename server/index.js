@@ -1,12 +1,16 @@
 const express = require('express');
 const path = require('path');
 const expressStaticGzip = require('express-static-gzip');
+const cors = require('cors');
+const Routers = require('./router');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(expressStaticGzip(`${__dirname}/../client/dist`));
+app.use(cors());
+app.use('/', Routers)
 
 app.get('*.js', (req, res, next) => {
   if (req.header('Accept-Encoding').includes('br')) {
