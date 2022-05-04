@@ -5,6 +5,7 @@ const expressStaticGzip = require('express-static-gzip');
 const cors = require('cors');
 const formData = require("express-form-data");
 const Routers = require('./router');
+const db = require('../database');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
