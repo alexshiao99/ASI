@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { SearchDetailsStyle, TitleStyle, PosterStyle, DivImgDeets, DivAll, DivSyn, DivDeets, TitleStyle2, Category, Value } from './Styles/SearchDetailsStyle.js';
 const axiosHelper = require('../axiosHelper');
 
-function SearchDetails({ anime }) {
-  let [details, setDetails] = useState({});
+function SearchDetails({ anime, details, setDetails }) {
+
   useEffect(() => {
     if (anime.anilist) {
       axiosHelper.getDetails(anime.anilist.idMal)

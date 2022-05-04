@@ -3,6 +3,7 @@ const Routers = require('express').Router();
 const axios = require('axios');
 const API = require('../config');
 const cloudinary = require('cloudinary');
+const dbControllers = require('../database/controllers/controllers');
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,
@@ -44,5 +45,10 @@ Routers.post('/image', (req, res) => {
     .all(promises)
     .then(results => res.send(results[0].secure_url))
 })
+
+Routers.post('/save', dbControllers.postAnime);
+Routers.get('/list', dbControllers.getList);
+Routers.put('/increment/:id', dbControllers.incrementEpisode);
+Routers.put('/decrement/:id', dbControllers.decrementEpisode);
 
 module.exports = Routers;

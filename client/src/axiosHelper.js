@@ -16,8 +16,28 @@ const searchUrl = (url) => {
   });
 };
 
+const saveAnime = (anime) => {
+  return axios.post('/save', anime);
+};
+
+const getList = () => {
+  return axios.get('/list');
+};
+
+const incrementEpisode = (id) => {
+  return axios.put(`/increment/${id}`)
+};
+
+const decrementEpisode = (id) => {
+  return axios.put(`/decrement/${id}`)
+};
+
 module.exports = {
   getDetails,
   sendImage,
   searchUrl,
+  saveAnime,
+  getList,
+  incrementEpisode,
+  decrementEpisode
 }
