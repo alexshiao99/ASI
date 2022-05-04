@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar.jsx';
 import SearchPreview from './SearchPreview.jsx';
 import SearchDetails from './SearchDetails.jsx';
@@ -12,15 +13,23 @@ import { HomeTitle, HomeContainer } from './Styles/HomeStyle.js';
 import sampleData from '../../../tempdata.js'
 const axios = require('axios');
 
-function App() {
-  let [page, setPage] = useState('Home');
+function App({ loadPage = "" }) {
+  let [page, setPage] = useState(loadPage);
   let [anime, setAnime] = useState({});
   let [details, setDetails] = useState({});
+  const navigate = useNavigate();
+  let { pathname } = useLocation();
+
   useEffect(() => {
     setAnime(sampleData.result[0]);
   }, [])
+
+  useEffect(() => {
+    setPage(pathname.slice(1));
+  }, [pathname])
+
   const  pageRouter = () => {
-    if (page === "Home") {
+    if (page === "") {
       return (
         <HomeContainer>
           <HomeTitle>Let's get started by uploading a picture</HomeTitle>
@@ -52,14 +61,14 @@ function App() {
     <>
       <NavBarStyle>
         <LogoSpan>
-          <LogoText onClick={() => setPage('Home')} className={page === "Home" ? "clicked" : ""}>
+          <LogoText onClick={() => navigate('/')} className={page === "" ? "clicked" : ""}>
             ANIMELIST
           </LogoText>
         </LogoSpan>
-        <SearchSpan onClick={() => setPage('Search')} className={page === "Search" ? "clicked" : ""}>
+        <SearchSpan onClick={() => navigate('/Search')} className={page === "Search" ? "clicked" : ""}>
           Search Anime
         </SearchSpan>
-        <SavedSpan onClick={() => setPage('Saved')} className={page === "Saved" ? "clicked" : ""}>
+        <SavedSpan onClick={() => navigate('/Saved')} className={page === "Saved" ? "clicked" : ""}>
           Saved Anime
         </SavedSpan>
       </NavBarStyle>

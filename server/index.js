@@ -14,8 +14,11 @@ app.use(express.json());
 app.use(formData.parse())
 app.use(expressStaticGzip(`${__dirname}/../client/dist`));
 app.use(cors());
-app.use('/', Routers)
+app.use('/', Routers);
 
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/dist/index.html'));
+});
 app.get('*.js', (req, res, next) => {
   if (req.header('Accept-Encoding').includes('br')) {
     req.url += '.br';
