@@ -11,6 +11,7 @@ function SavedList({ page }) {
     .then((data) => setList(data.data))
     .catch((err) => console.log(err));
   }, [page])
+
   return (
     <SavedListDiv>
       {list.map((savedAnime) => {

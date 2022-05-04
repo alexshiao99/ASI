@@ -19,6 +19,7 @@ function App({ loadPage = "" }) {
   let [anime, setAnime] = useState({});
   let [details, setDetails] = useState({});
   let [modal, setModal] = useState(false);
+  let [welcome, setWelcome] = useState(`Let's get started by uploading a picture`);
   const navigate = useNavigate();
   let { pathname } = useLocation();
 
@@ -34,7 +35,7 @@ function App({ loadPage = "" }) {
     if (page === "") {
       return (
         <HomeContainer>
-          <HomeTitle>Let's get started by uploading a picture</HomeTitle>
+          <HomeTitle>{welcome}</HomeTitle>
           <SearchBar setAnime={setAnime} setPage={setPage} setModal={setModal}/>
         </HomeContainer>
       )
@@ -64,7 +65,11 @@ function App({ loadPage = "" }) {
       {modal ? (<LoadingModal modal={modal}/>) : null}
       <NavBarStyle>
         <LogoSpan>
-          <LogoText onClick={() => navigate('/')} className={page === "" ? "clicked" : ""}>
+          <LogoText onClick={() => {
+            navigate('/');
+            page !== "" ? setWelcome(`Welcome back to the home page, let's upload a picture`) : null;
+            }}
+            className={page === "" ? "clicked" : ""}>
             ANIMELIST
           </LogoText>
         </LogoSpan>
