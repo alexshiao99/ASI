@@ -7,22 +7,31 @@ import SavedContainerStyle from './Styles/SavedContainerStyle.js';
 import ResultsStyle from './Styles/ResultsStyle.js';
 import SavedList from './SavedList.jsx';
 import { WatchTitleDiv } from './Styles/SavedListStyle.js';
-import { NavBarStyle, LogoSpan, SearchSpan, SavedSpan } from './Styles/NavBarStyle.js';
+import { NavBarStyle, LogoSpan, SearchSpan, SavedSpan, LogoText } from './Styles/NavBarStyle.js';
+import { HomeTitle, HomeContainer } from './Styles/HomeStyle.js';
 import sampleData from '../../../tempdata.js'
 const axios = require('axios');
 
 function App() {
-  let [page, setPage] = useState('Search');
+  let [page, setPage] = useState('Home');
   let [anime, setAnime] = useState({});
   let [details, setDetails] = useState({});
   useEffect(() => {
     setAnime(sampleData.result[0]);
   }, [])
   const  pageRouter = () => {
+    if (page === "Home") {
+      return (
+        <HomeContainer>
+          <HomeTitle>Let's get started by uploading a picture</HomeTitle>
+          <SearchBar setAnime={setAnime} setPage={setPage}/>
+        </HomeContainer>
+      )
+    }
     if (page === 'Search') {
       return (
         <SearchContainerStyle>
-          <SearchBar setAnime={setAnime}/>
+          <SearchBar setAnime={setAnime} setPage={setPage}/>
           <ResultsStyle>
             <SearchPreview anime={anime} details={details}/>
             <SearchDetails anime={anime} details={details} setDetails={setDetails}/>
@@ -43,12 +52,14 @@ function App() {
     <>
       <NavBarStyle>
         <LogoSpan>
-          ANIMELIST
+          <LogoText onClick={() => setPage('Home')} className={page === "Home" ? "clicked" : ""}>
+            ANIMELIST
+          </LogoText>
         </LogoSpan>
-        <SearchSpan onClick={() => setPage('Search')}>
+        <SearchSpan onClick={() => setPage('Search')} className={page === "Search" ? "clicked" : ""}>
           Search Anime
         </SearchSpan>
-        <SavedSpan onClick={() => setPage('Saved')}>
+        <SavedSpan onClick={() => setPage('Saved')} className={page === "Saved" ? "clicked" : ""}>
           Saved Anime
         </SavedSpan>
       </NavBarStyle>

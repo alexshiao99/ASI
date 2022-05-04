@@ -4,7 +4,7 @@ import { UploadLabel, UploadInput } from './Styles/UploadInputStyle.js';
 const FormData = require('form-data');
 const axiosHelper = require('../axiosHelper');
 
-function SearchBar({ setAnime }) {
+function SearchBar({ setAnime, setPage }) {
   const [uploadImg, setUploadImg] = useState(null);
   const [searchUrl, setSearchUrl] = useState('');
 
@@ -26,6 +26,7 @@ function SearchBar({ setAnime }) {
       }
       setAnime(data.data.result[i]);
     })
+    .then(() => setPage("Search"))
     .catch((err) => console.log(err));
   }
 

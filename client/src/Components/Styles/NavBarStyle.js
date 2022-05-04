@@ -8,10 +8,23 @@ export const NavBarStyle = styled.div `
   padding: 10px 70px 10px 10px;
 `;
 
+export const LogoText = styled.div`
+  font-size: 1.5em;
+  width: 140px;
+  text-align: center;
+  &:hover {
+    box-shadow: 0 0 10px 1px #B972E5;
+    transition: 0.25s;
+    cursor: pointer;
+  };
+  &.clicked {
+    box-shadow: 0 0 10px 1px #B972E5;
+  }
+`;
+
 export const LogoSpan = styled.span`
   padding: 5px 0 0 100px;
   flex-grow: 6;
-  font-size: 1.5em;
 `;
 
 export const SearchSpan = styled.span`
@@ -26,6 +39,9 @@ export const SearchSpan = styled.span`
     transition: 0.25s;
     cursor: pointer;
   };
+  &.clicked {
+    box-shadow: 0 0 10px 1px #B972E5;
+  }
 `;
 
 export const SavedSpan = styled.span`
@@ -40,4 +56,7 @@ export const SavedSpan = styled.span`
     transition: 0.25s;
     cursor: pointer;
   };
+  &.clicked {
+    box-shadow: 0 0 10px 1px #B972E5;
+  }
 `;
