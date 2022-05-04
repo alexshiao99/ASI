@@ -12,6 +12,7 @@ export const LogoText = styled.div`
   font-size: 1.5em;
   width: 140px;
   text-align: center;
+  border-radius: 5px;
   &:hover {
     box-shadow: 0 0 10px 1px #B972E5;
     transition: 0.25s;

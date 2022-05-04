@@ -3,10 +3,11 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import SearchBar from './SearchBar.jsx';
 import SearchPreview from './SearchPreview.jsx';
 import SearchDetails from './SearchDetails.jsx';
+import SavedList from './SavedList.jsx';
+import LoadingModal from './LoadingModal.jsx';
 import SearchContainerStyle from './Styles/SearchContainerStyle.js';
 import SavedContainerStyle from './Styles/SavedContainerStyle.js';
 import ResultsStyle from './Styles/ResultsStyle.js';
-import SavedList from './SavedList.jsx';
 import { WatchTitleDiv } from './Styles/SavedListStyle.js';
 import { NavBarStyle, LogoSpan, SearchSpan, SavedSpan, LogoText } from './Styles/NavBarStyle.js';
 import { HomeTitle, HomeContainer } from './Styles/HomeStyle.js';
@@ -17,6 +18,7 @@ function App({ loadPage = "" }) {
   let [page, setPage] = useState(loadPage);
   let [anime, setAnime] = useState({});
   let [details, setDetails] = useState({});
+  let [modal, setModal] = useState(false);
   const navigate = useNavigate();
   let { pathname } = useLocation();
 
@@ -33,14 +35,14 @@ function App({ loadPage = "" }) {
       return (
         <HomeContainer>
           <HomeTitle>Let's get started by uploading a picture</HomeTitle>
-          <SearchBar setAnime={setAnime} setPage={setPage}/>
+          <SearchBar setAnime={setAnime} setPage={setPage} setModal={setModal}/>
         </HomeContainer>
       )
     }
     if (page === 'Search') {
       return (
         <SearchContainerStyle>
-          <SearchBar setAnime={setAnime} setPage={setPage}/>
+          <SearchBar setAnime={setAnime} setPage={setPage} setModal={setModal}/>
           <ResultsStyle>
             <SearchPreview anime={anime} details={details}/>
             <SearchDetails anime={anime} details={details} setDetails={setDetails}/>
@@ -59,6 +61,7 @@ function App({ loadPage = "" }) {
   }
   return (
     <>
+      {modal ? (<LoadingModal modal={modal}/>) : null}
       <NavBarStyle>
         <LogoSpan>
           <LogoText onClick={() => navigate('/')} className={page === "" ? "clicked" : ""}>

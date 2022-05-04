@@ -1,23 +1,28 @@
 import React, {useState} from 'react';
 import SearchBarStyle from './Styles/SearchBarStyle.js';
+import { useNavigate } from 'react-router-dom';
 import { UploadLabel, UploadInput } from './Styles/UploadInputStyle.js';
 const FormData = require('form-data');
 const axiosHelper = require('../axiosHelper');
 
-function SearchBar({ setAnime, setPage }) {
+function SearchBar({ setAnime, setPage, setModal }) {
   const [uploadImg, setUploadImg] = useState(null);
   const [searchUrl, setSearchUrl] = useState('');
+  const navigate = useNavigate();
 
   const handleUpload = (image) => {
+    setModal(previous => !previous);
     const formData = new FormData()
     setUploadImg(image);
     formData.append("image", image);
     axiosHelper.sendImage(formData)
     .then((url) => setSearchUrl(url.data))
+    .then(() => setModal(previous => !previous))
     .catch((err) => console.log(err));
   }
 
   const handleSearch = () => {
+    setModal(previous => !previous);
     axiosHelper.searchUrl(searchUrl)
     .then((data) => {
       let i = 0;
@@ -26,7 +31,8 @@ function SearchBar({ setAnime, setPage }) {
       }
       setAnime(data.data.result[i]);
     })
-    .then(() => setPage("Search"))
+    .then(() => setModal(previous => !previous))
+    .then(() => navigate("/Search"))
     .catch((err) => console.log(err));
   }
 
