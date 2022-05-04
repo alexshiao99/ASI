@@ -17,6 +17,7 @@ function SearchBar({ setAnime, setPage, setModal }) {
     formData.append("image", image);
     axiosHelper.sendImage(formData)
     .then((url) => setSearchUrl(url.data))
+    .catch((err) => alert("Can't find anything!!!!!!!"))
     .then(() => setModal(previous => !previous))
     .catch((err) => console.log(err));
   }
@@ -31,8 +32,9 @@ function SearchBar({ setAnime, setPage, setModal }) {
       }
       setAnime(data.data.result[i]);
     })
-    .then(() => setModal(previous => !previous))
     .then(() => navigate("/Search"))
+    .catch((err) => alert("Can't find anything!!!!!!!"))
+    .then(() => setModal(previous => !previous))
     .catch((err) => console.log(err));
   }
 

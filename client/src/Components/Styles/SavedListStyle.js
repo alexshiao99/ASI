@@ -61,7 +61,7 @@ export const EpTitle = styled.div`
   text-align: center;
 `;
 
-export const CrementButton = styled.button `
+export const CrementButton = styled.button`
   border: 1px solid black;
   border-radius: 10px;
   width: 50px;
@@ -78,3 +78,21 @@ export const CrementButton = styled.button `
   }
   padding: 5px;
 `
+
+export const DeleteButton = styled.button`
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 30px;
+  height: 30px;
+  &:hover {
+  cursor: pointer;
+  box-shadow: 0 0 10px 1px red;
+  };
+  background-color: #DEC3EF;
+  font-family: "Montserrat";
+  &.hidden {
+    visibility: hidden;
+  }
+  padding: 5px;
+  align-self: center;
+`;

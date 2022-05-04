@@ -1,19 +1,18 @@
 require('dotenv').config();
 const Routers = require('express').Router();
 const axios = require('axios');
-const API = require('../config');
 const cloudinary = require('cloudinary');
 const dbControllers = require('../database/controllers/controllers');
 
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
 })
 
 Routers.get('/MAL/:idMal', (req, res) => {
   axios.get(`https://api.myanimelist.net/v2/anime/${req.params.idMal}`, {
-    headers: { "X-MAL-CLIENT-ID": API.TOKEN },
+    headers: { "X-MAL-CLIENT-ID": process.env.MAL_TOKEN },
     params: {
       fields:
         `id,title,main_picture,start_date,
@@ -35,7 +34,7 @@ Routers.get('/URL', (req, res) => {
     }
   })
   .then((data) => res.send(data.data))
-  .catch((err) => console.log(err));
+  .catch((err) => res.send(err));
 })
 
 Routers.post('/image', (req, res) => {
@@ -50,5 +49,6 @@ Routers.post('/save', dbControllers.postAnime);
 Routers.get('/list', dbControllers.getList);
 Routers.put('/increment/:id', dbControllers.incrementEpisode);
 Routers.put('/decrement/:id', dbControllers.decrementEpisode);
+Routers.delete('/list/:id', dbControllers.deleteAnime);
 
 module.exports = Routers;

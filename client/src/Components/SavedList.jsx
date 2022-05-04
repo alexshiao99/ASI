@@ -12,10 +12,16 @@ function SavedList({ page }) {
     .catch((err) => console.log(err));
   }, [page])
 
+  const deleteAnime = (id) => {
+    axiosHelper.deleteAnime(id)
+    .then(() => axiosHelper.getList())
+    .then((data) => setList(data.data))
+    .catch((err) => console.log(err));
+  }
   return (
     <SavedListDiv>
       {list.map((savedAnime) => {
-        return <SavedListEntry key={savedAnime._id} savedAnime={savedAnime}/>
+        return <SavedListEntry key={savedAnime._id} savedAnime={savedAnime} deleteAnime={deleteAnime}/>
       })}
     </SavedListDiv>
   )

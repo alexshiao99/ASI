@@ -29,11 +29,18 @@ const postAnime = (req, res) => {
   .catch((err) => console.log(err));
 };
 
+const deleteAnime = (req, res) => {
+  AnimeList.deleteOne({_id: req.params.id}, ()=>{})
+  .then((data) => res.send(data))
+  .catch((err) => res.send(err));
+}
+
 module.exports = {
   incrementEpisode,
   decrementEpisode,
   postAnime,
-  getList
+  getList,
+  deleteAnime
 };
 
 

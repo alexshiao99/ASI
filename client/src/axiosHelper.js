@@ -25,12 +25,16 @@ const getList = () => {
 };
 
 const incrementEpisode = (id) => {
-  return axios.put(`/increment/${id}`)
+  return axios.put(`/increment/${id}`);
 };
 
 const decrementEpisode = (id) => {
-  return axios.put(`/decrement/${id}`)
+  return axios.put(`/decrement/${id}`);
 };
+
+const deleteAnime = (id) => {
+  return axios.delete(`/list/${id}`);
+}
 
 module.exports = {
   getDetails,
@@ -39,5 +43,6 @@ module.exports = {
   saveAnime,
   getList,
   incrementEpisode,
-  decrementEpisode
+  decrementEpisode,
+  deleteAnime
 }

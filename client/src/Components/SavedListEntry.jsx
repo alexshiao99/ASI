@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ListEntryDiv, ListImg, ListValue, ListDetails} from './Styles/SavedListStyle.js';
+import { ListEntryDiv, ListImg, ListValue, ListDetails, DeleteButton } from './Styles/SavedListStyle.js';
 import { IncrementDiv, CrementButton, EpTitle, IncrementButtonContainer } from './Styles/SavedListStyle.js';
 const axiosHelper = require('../axiosHelper');
 
-function SavedListEntry({ savedAnime }) {
+function SavedListEntry({ savedAnime, deleteAnime }) {
   let [epCount, setEpCount] = useState(savedAnime.currentEp);
   const increment = () => {
     setEpCount(previous => previous + 1)
@@ -15,6 +15,7 @@ function SavedListEntry({ savedAnime }) {
     axiosHelper.decrementEpisode(savedAnime._id)
     .catch((err) => console.log(err));
   }
+
   return (
     <ListEntryDiv>
       <ListImg src={savedAnime.image} />
@@ -30,6 +31,7 @@ function SavedListEntry({ savedAnime }) {
           <ListValue>{epCount} / {savedAnime.totalEp}</ListValue>
           <CrementButton className={epCount === savedAnime.totalEp ? "hidden": ""} onClick={() => increment()}>+</CrementButton>
         </IncrementButtonContainer>
+        <DeleteButton onClick={() => deleteAnime(savedAnime._id)}>X</DeleteButton>
       </IncrementDiv>
     </ListEntryDiv>
   )
