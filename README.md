@@ -7,7 +7,8 @@ Anime Screenshot Identifier
 
 To run this program, inside of the project's root directory you will need to:
 
-  1. `npm install`
+  1. Ensure that MongoDB is installed and running on your localhost
+  2. `npm install`
   
       *For a full list of dependencies reference the package.json*
   2. Generate a Cloudinary account
