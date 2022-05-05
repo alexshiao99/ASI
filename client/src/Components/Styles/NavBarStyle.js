@@ -14,12 +14,12 @@ export const LogoText = styled.div`
   text-align: center;
   border-radius: 5px;
   &:hover {
-    box-shadow: 0 0 10px 1px #B972E5;
+    text-shadow: 1px 1px 2px #B972E5;
     transition: 0.25s;
     cursor: pointer;
   };
   &.clicked {
-    box-shadow: 0 0 10px 1px #B972E5;
+    text-shadow: 1px 1px 2px #B972E5;
   }
 `;
 
@@ -36,12 +36,12 @@ export const SearchSpan = styled.span`
   flex-grow: 1;
   border-radius: 5px;
   &:hover {
-    box-shadow: 0 0 10px 1px #B972E5;
+    text-shadow: 1px 1px 2px #B972E5;
     transition: 0.25s;
     cursor: pointer;
   };
   &.clicked {
-    box-shadow: 0 0 10px 1px #B972E5;
+    text-shadow: 1px 1px 2px #B972E5;
   }
 `;
 
@@ -53,11 +53,11 @@ export const SavedSpan = styled.span`
   text-align: center;
   flex-grow: 1;
   &:hover {
-    box-shadow: 0 0 10px 1px #B972E5;
+    text-shadow: 1px 1px 2px #B972E5;
     transition: 0.25s;
     cursor: pointer;
   };
   &.clicked {
-    box-shadow: 0 0 10px 1px #B972E5;
+    text-shadow: 1px 1px 2px #B972E5;
   }
 `;
