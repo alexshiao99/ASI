@@ -28,8 +28,8 @@ function SearchDetails({ anime, details, setDetails }) {
             </DivDeets>
           <PosterStyle src={details.main_picture.large} />
           </DivImgDeets>
-          <DivSyn>
             <div>Synopsis:</div>
+          <DivSyn>
             <br />
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{details.synopsis}
           </DivSyn>
